@@ -1,10 +1,12 @@
 package com.vinay.linkedin.posts_service.controller;
 
+import com.vinay.linkedin.posts_service.auth.UserContextHolder;
 import com.vinay.linkedin.posts_service.dto.PostCreateRequestDto;
 import com.vinay.linkedin.posts_service.dto.PostDto;
 import com.vinay.linkedin.posts_service.service.PostService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +16,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/core")
+@Slf4j
 public class PostController {
 
     private final PostService postService;

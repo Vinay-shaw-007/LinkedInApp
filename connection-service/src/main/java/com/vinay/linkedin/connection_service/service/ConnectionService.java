@@ -1,5 +1,6 @@
 package com.vinay.linkedin.connection_service.service;
 
+import com.vinay.linkedin.connection_service.auth.UserContextHolder;
 import com.vinay.linkedin.connection_service.entity.Person;
 import com.vinay.linkedin.connection_service.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,13 +16,15 @@ public class ConnectionService {
 
     private final PersonRepository personRepository;
 
-    public List<Person> getFirstDegreeConnections(Long userId) {
+    public List<Person> getFirstDegreeConnections() {
+        Long userId = UserContextHolder.getCurrentUserId();
         log.info("Getting first degree connections user with id: {} ", userId);
 
         return personRepository.getFirstDegreeConnections(userId);
     }
 
-    public List<Person> getSecondDegreeConnections(Long userId) {
+    public List<Person> getSecondDegreeConnections() {
+        Long userId = UserContextHolder.getCurrentUserId();
         log.info("Getting second degree connections user with id: {} ", userId);
 
         return personRepository.getSecondDegreeConnections(userId);
