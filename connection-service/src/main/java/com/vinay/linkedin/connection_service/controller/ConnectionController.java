@@ -16,12 +16,12 @@ public class ConnectionController {
     private final ConnectionService connectionService;
 
     @GetMapping("/first-degree")
-    public ResponseEntity<List<Person>> getFirstConnections() {
+    public ResponseEntity<List<Person>> getFirstDegreeConnections() {
         return ResponseEntity.ok(connectionService.getFirstDegreeConnections());
     }
 
     @GetMapping("/second-degree")
-    public ResponseEntity<List<Person>> getSecondConnections() {
+    public ResponseEntity<List<Person>> getSecondDegreeConnections() {
         return ResponseEntity.ok(connectionService.getSecondDegreeConnections());
     }
 }
